@@ -2,10 +2,10 @@ package com.example.myapplication.domain.usecases.appentry
 
 import com.example.myapplication.domain.manager.LocalUserManager
 
-class SaveAppEntry(
+class SaveEmailEntry(
     private val localUserManager: LocalUserManager
 ) {
-    suspend operator fun invoke(entry: Boolean) {
-        localUserManager.saveAppEntry(entry) // Save the app entry value to the DataStore.
+    suspend operator fun invoke(email: String) {
+        localUserManager.saveEmail(email)
     }
 }

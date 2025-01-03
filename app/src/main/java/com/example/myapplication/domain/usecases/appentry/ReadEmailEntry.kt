@@ -1,11 +1,10 @@
 package com.example.myapplication.domain.usecases.appentry
 
 import com.example.myapplication.domain.manager.LocalUserManager
+import kotlinx.coroutines.flow.Flow
 
-class SaveAppEntry(
+class ReadEmailEntry (
     private val localUserManager: LocalUserManager
 ) {
-    suspend operator fun invoke(entry: Boolean) {
-        localUserManager.saveAppEntry(entry) // Save the app entry value to the DataStore.
-    }
+    operator fun invoke() : Flow<String?> = localUserManager.readEmailEntry()
 }

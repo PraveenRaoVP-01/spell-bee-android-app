@@ -13,7 +13,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "android.caged.jogfit"
+        applicationId = "android.caged.spellbee"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -74,9 +74,6 @@ dependencies {
 
     //Splash Api
     implementation(libs.androidx.core.splashscreen)
-
-    //Compose Navigation
-//    implementation(libs.androidx.navigation.compose.v253)
 
 //    //Dagger Hilt
     implementation(libs.hilt.android)

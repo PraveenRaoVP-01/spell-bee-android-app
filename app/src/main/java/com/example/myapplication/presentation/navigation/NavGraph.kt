@@ -11,6 +11,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.example.myapplication.presentation.auth.login.LoginScreen
 import com.example.myapplication.presentation.auth.login.LoginViewModel
+import com.example.myapplication.presentation.home.HomeScreen
+import com.example.myapplication.presentation.home.HomeViewModel
 
 @Composable
 fun NavGraph(startDestination: String, modifier: Modifier) {
@@ -32,11 +34,26 @@ fun NavGraph(startDestination: String, modifier: Modifier) {
                     onEvent = viewModel::onEvent
                 )
             }
+
+            composable(route = Routes.ForgotPasswordScreen.route) {
+                // ForgotPasswordScreen()
+            }
+
+            composable(route = Routes.SignUpScreen.route) {
+                // SignUpScreen()
+            }
         }
 
-        navigation(startDestination = Routes.HomeScreen.route, route = Routes.PostOnboardingNavigation.route) {
+        navigation(
+            startDestination = Routes.HomeScreen.route,
+            route = Routes.PostOnboardingNavigation.route
+        ) {
             composable(route = Routes.HomeScreen.route) {
-                // HomeScreen()
+                val viewModel: HomeViewModel = hiltViewModel()
+                HomeScreen(
+                    navigatePopTo = { route, popUp -> navigateAndPopUp(route, popUp, navController) },
+                    onClick = viewModel::onClick
+                )
             }
         }
     }
